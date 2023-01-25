@@ -4,7 +4,7 @@ if(!require(pacman)){install.packages("pacman");library(pacman)}
 p_load(ggplot2,tidyverse,plyr,dplyr,ggtext)
 
 ## Set working directory
-setwd("~/Documents/ND_PhD/Laboratory/Thesis/Data/Excel/CFU:McFarlandStd./Combined_CFU_in_BMDM/")
+setwd("~/Documents/ND_PhD/Writing Projects/Paper/MMAR_SecA2_ManuscriptData_2023/intracellular_GC/")
 
 ## Load data into tibble (tidyverse version of data frame - note that read_csv is the tidyverse version of read.csv
 data = read_csv("CombinedData_COUNTS.csv")
@@ -69,7 +69,7 @@ P1
 #######Uptake Graph
 
 ## Set working directory
-setwd("~/Documents/ND_PhD/Laboratory/Thesis/Data/Excel/CFU:McFarlandStd./Combined_CFU_in_BMDM/")
+setwd("~/Documents/ND_PhD/Writing Projects/Paper/MMAR_SecA2_ManuscriptData_2023/intracellular_GC/")
 
 ## Load data into tibble (tidyverse version of data frame - note that read_csv is the tidyverse version of read.csv
 data = read_csv("CombinedData_Uptake.csv")

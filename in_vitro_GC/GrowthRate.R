@@ -1,19 +1,12 @@
-###Data read into this script is an edited output from the CombinedData_GC_GrowthCurver script with the following modifications:
-###(1) I changed the strains names to exclude the _1A, _1B, _1C endings.
-###(2) I changed the growth rate values so they were separated by a period (.) and not a comma (,).
-###This was done manually rather than through code.
-
-
 ## Install and load packages
 if(!require(pacman)){install.packages("pacman");library(pacman)}
 p_load(ggplot2,tidyverse,plyr,dplyr,multcomp,ggpubr,reshape2,growthcurver,purrr,deSolve, ggtext,DescTools)
 
 ## Set working directory
-setwd("~/Documents/ND_PhD/Laboratory/Thesis/Data/Excel/InVitro-GC/CombinedData/")
+setwd("~/Documents/ND_PhD/Writing Projects/Paper/MMAR_SecA2_ManuscriptData_2023/in_vitro_GC/")
 
-## Load data into tibble (tidyverse version of data frame - note that read_csv is the tidyverse version of read.csv
-#file_name <- "~/Documents/ND_PhD/Laboratory/Thesis/Data/Excel/InVitro-GC/CombinedData/growthcurver_test.csv"
-data = read.csv("GC_output_edited.csv", sep="\t", header=TRUE)
+## Load data
+data = read.csv("GrowthRate.csv", sep="\t", header=TRUE)
 
 
 #Subset data
@@ -85,24 +78,6 @@ kruskal.test(r ~ sample, data = df)
 pairwise.wilcox.test(df$r, df$sample)
 
 
-
-
-
-
-
-###DID NOT END UP USING THE BELOW CODE
-##Data and calculate SD, SE,and IC
-##Data and calculate SD, SE,and IC
-#DfDnew <- df %>% select(sample, r)
-mysum <- df %>%
-  group_by(sample) %>% 
-  dplyr::summarise(
-    n=n(),
-    mean= mean(r), 
-    sd = sd(r)
-  ) %>%
-  mutate( se=sd/sqrt(n))  %>%
-  mutate( ic=se * qt((1-0.05)/2 + .5, n-1))
 
 
 

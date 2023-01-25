@@ -2,8 +2,8 @@
 if(!require(pacman)){install.packages("pacman");library(pacman)}
 p_load(ggplot2,tidyverse,plyr,dplyr,DescTools,multcomp,ggpubr,rstatix,ggprism,magrittr,patchwork,ggtext,tibble)
 
-setwd("~/Documents/ND_PhD/Laboratory/Thesis/Data/Excel/SDS-Sensitivity/")
-data=data.frame(read.csv("2022.08_SDS-Sensitivity-Assays.csv",header=T))
+setwd("~/Documents/ND_PhD/Writing Projects/Paper/MMAR_SecA2_ManuscriptData_2023/SDS-Sensitivity/")
+data=data.frame(read.csv("SDS-Sensitivity_Counts.csv",header=T))
 
 #Make the strain levels a factor and order as desired
 data$Strain <- factor(data$Strain, levels = c("WT", "ΔsecA2", "ΔsecA2/secA2_MM"))
@@ -66,22 +66,6 @@ post_test <- glht(model = res.aov, linfct = mcp(Strain = "Dunnett"))
 #Look at summary statistics
 summary(post_test)
 
-
-#Look at the names under summary(post_test)
-names(summary(post_test))
-
-#then go into test
-names(summary(post_test)$test)
-
-#extract the pvalues from the pvalues section of names(summary(post_test)$test) into a data_frame
-df_pvalues <- as.data.frame(summary(post_test)$test$pvalues)
-
-
-
- 
-#Use rstatix multiplecomparsion t-test to determine the y_position, xmin, and xmax values for when you plat the ANOVA results
-#df_p_val <- rstatix::t_test(data, RelGrowth ~ Strain, ref.group = "WT") %>% 
-  #rstatix::add_xy_position()
 
 #Manually add ANOVA results (SEE BELOW)
 p2 <- AveL + geom_signif(annotation=c("**", "ns"),

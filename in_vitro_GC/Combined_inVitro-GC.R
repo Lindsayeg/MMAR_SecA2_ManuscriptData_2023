@@ -3,10 +3,10 @@ if(!require(pacman)){install.packages("pacman");library(pacman)}
 p_load(ggplot2,tidyverse,plyr,dplyr,ggtext)
 
 ## Set working directory
-setwd("~/Documents/ND_PhD/Laboratory/Thesis/Data/Excel/InVitro-GC/CombinedData/")
+setwd("~/Documents/ND_PhD/Writing Projects/Paper/MMAR_SecA2_ManuscriptData_2023/in_vitro_GC/")
 
 ## Load data into tibble (tidyverse version of data frame - note that read_csv is the tidyverse version of read.csv
-data = data.frame(read_csv("Triplicate-inVitro-GC_NL.csv"))
+data = data.frame(read_csv("Combined-inVitro-GC.csv"))
 
 #Replace ΔsecA2(8) with ΔsecA2
 data["Strain"][data["Strain"]=="ΔsecA2(8)"] <- "ΔsecA2"
@@ -80,10 +80,6 @@ P
 ## Save plot
 ggsave("./Triplicate.png", P, width = 4, height = 4)
 
-ggsave("./Triplicate_GC_LogScale.png", P, width = 4, height = 4)
-
-###For linear scale you need to have the legend position at 0.3, 0.85
-###For log scale you need to have the legend position at 0.72, 0.25
 
 
 

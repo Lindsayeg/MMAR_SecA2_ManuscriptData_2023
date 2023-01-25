@@ -1,17 +1,13 @@
-####DO I NEED TO ASSESS EACH BIOLOGICAL REPLICATE SEPARATELY FOR STATS PURPOSES 
-####OR IS IT OKAY FOR THE DATA TO BE COMBINED??
-
-
 ## Install and load packages
 if(!require(pacman)){install.packages("pacman");library(pacman)}
 p_load(ggplot2,tidyverse,plyr,dplyr,multcomp,ggpubr,reshape2,growthcurver,purrr,deSolve)
 
 ## Set working directory
-setwd("~/Documents/ND_PhD/Laboratory/Thesis/Data/Excel/InVitro-GC/CombinedData/")
+setwd("~/Documents/ND_PhD/Writing Projects/Paper/MMAR_SecA2_ManuscriptData_2023/in_vitro_GC/")
 
 ## Load data into tibble (tidyverse version of data frame - note that read_csv is the tidyverse version of read.csv
 #file_name <- "~/Documents/ND_PhD/Laboratory/Thesis/Data/Excel/InVitro-GC/CombinedData/growthcurver_test.csv"
-data = read_csv("Growthcurver_3BioReps.csv")
+data = read_csv("Growthcurver.csv")
 
 
 #Open png file

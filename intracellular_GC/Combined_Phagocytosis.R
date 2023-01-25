@@ -3,7 +3,7 @@ if(!require(pacman)){install.packages("pacman");library(pacman)}
 p_load(ggplot2,tidyverse,plyr,dplyr,ggtext)
 
 ## Set working directory
-setwd("~/Documents/ND_PhD/Laboratory/Thesis/Data/Excel/CFU:McFarlandStd./Combined_CFU_in_BMDM/")
+setwd("~/Documents/ND_PhD/Writing Projects/Paper/MMAR_SecA2_ManuscriptData_2023/intracellular_GC/")
 
 ## Load data into tibble (tidyverse version of data frame - note that read_csv is the tidyverse version of read.csv
 data = read_csv("CombinedData_Phagocytosis.csv")
@@ -45,7 +45,7 @@ df2$Strain <- factor(df2$Strain, levels = c("WT", "ΔsecA2", "ΔsecA2/secA2_MM",
 
 ## Plot it
 P <- ggplot(df2, aes(x=Strain, y=Rel.Uptake, fill=Strain)) + theme_classic() +
-  stat_summary(geom = "bar", fun = mean, position = "dodge", color=alpha(c('#990000','#FFCC33','#CC9900','#996600','#6699FF'), 1), size=0.7) +
+  stat_summary(geom = "bar", fun = mean, position = "dodge", color=alpha(c('#990000','#FFCC33','#CC9900','#996600','#6699FF'), 1), linewidth=0.7) +
   scale_fill_manual('Strain', values=alpha(c('#990000','#FFCC33','#CC9900','#996600','#6699FF'), 0.6)) +
   theme(legend.position = "none", axis.text=element_text(size=8), 
         axis.title.y=element_text(size=8), axis.title.x=element_blank(), legend.title = element_blank(), legend.text = element_text(size=8), axis.text.x = element_markdown(angle=45, vjust=1, hjust=1),
@@ -62,15 +62,6 @@ P <- ggplot(df2, aes(x=Strain, y=Rel.Uptake, fill=Strain)) + theme_classic() +
 
 
 P
-
-## Save plot
-#ggsave("./2022.07.06-10_Uptake.png", P, width = 5, height = 5)
-
-
-
-
-
-
 
 
 
@@ -115,21 +106,6 @@ post_test <- glht(model = res.aov, linfct = mcp(Strain = "Dunnett"))
 summary(post_test)
 
 
-#Look at the names under summary(post_test)
-names(summary(post_test))
-
-#then go into test
-names(summary(post_test)$test)
-
-#extract the pvalues from the pvalues section of names(summary(post_test)$test) into a data_frame
-df_pvalues <- as.data.frame(summary(post_test)$test$pvalues)
-
-
-
-
-#Use rstatix multiplecomparsion t-test to determine the y_position, xmin, and xmax values for when you plat the ANOVA results
-#df_p_val <- rstatix::t_test(data, RelGrowth ~ Strain, ref.group = "WT") %>% 
-#rstatix::add_xy_position()
 
 #Manually add ANOVA results (SEE BELOW)
 p2 <- P + geom_signif(annotation=c("ns", "ns", "ns", "ns"),

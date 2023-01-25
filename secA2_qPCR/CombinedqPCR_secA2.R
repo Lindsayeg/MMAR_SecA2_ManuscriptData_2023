@@ -3,7 +3,7 @@ if(!require(pacman)){install.packages("pacman");library(pacman)}
 p_load(ggplot2,tidyverse,plyr,dplyr,DescTools,multcomp,ggpubr,rstatix, ggtext)
 
        
-setwd("~/Documents/ND_PhD/Laboratory/Thesis/Data/Excel/qPCR/2022-06-05:6_CombinedData/")
+setwd("~/Documents/ND_PhD/Writing Projects/Paper/MMAR_SecA2_ManuscriptData_2023/secA2_qPCR/")
 data=data.frame(read.csv("secA2_3Biological_Replicates.csv",header=T))
 
 

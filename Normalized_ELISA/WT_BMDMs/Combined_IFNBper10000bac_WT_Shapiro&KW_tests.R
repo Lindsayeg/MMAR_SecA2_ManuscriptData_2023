@@ -4,7 +4,7 @@ p_load(ggplot2,tidyverse,plyr,dplyr,DescTools,multcomp,ggpubr,rstatix,ggprism,ma
 
 
 #####ELISA
-setwd("~/Documents/ND_PhD/Laboratory/Thesis/Data/Excel/ELISA/CombinedData/Dose-response ELISA/WT BMDMS/")
+setwd("~/Documents/ND_PhD/Writing Projects/Paper/MMAR_SecA2_ManuscriptData_2023/Normalized_ELISA/WT_BMDMs/")
 data=data.frame(read.csv("CD_WT_IFNB.csv",header=T, stringsAsFactors = FALSE))
 
 

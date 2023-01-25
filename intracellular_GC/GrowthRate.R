@@ -1,15 +1,9 @@
-###Data read into this script is an edited output from the CombinedData_GC_GrowthCurver script with the following modifications:
-###(1) I changed the strains names to exclude the _1A, _1B, _1C endings.
-###(2) I changed the growth rate values so they were separated by a period (.) and not a comma (,).
-###This was done manually rather than through code.
-
-
 ## Install and load packages
 if(!require(pacman)){install.packages("pacman");library(pacman)}
 p_load(ggplot2,tidyverse,plyr,dplyr,multcomp,ggpubr,reshape2,growthcurver,purrr,deSolve, ggtext,DescTools)
 
 ## Set working directory
-setwd("~/Documents/ND_PhD/Laboratory/Thesis/Data/Excel/CFU:McFarlandStd./Combined_CFU_in_BMDM/")
+setwd("~/Documents/ND_PhD/Writing Projects/Paper/MMAR_SecA2_ManuscriptData_2023/intracellular_GC/")
 
 ## Load data into tibble (tidyverse version of data frame - note that read_csv is the tidyverse version of read.csv
 #file_name <- "~/Documents/ND_PhD/Laboratory/Thesis/Data/Excel/InVitro-GC/CombinedData/growthcurver_test.csv"
@@ -109,32 +103,9 @@ shapiro.test(df$r[df$sample=="ΔesxBA"])
 ##### ALTERNATIVELY TRY A KRUSKAL-WALLIS test
 kruskal.test(r ~ sample, data = df)
 
-##As the p-value is less than 0.05, there is likely a significant interaction in the data set.
+##If p-value is less than 0.05, there is likely a significant interaction in the data set.
 ##Use a pair-wise comparison to determine which pair is significantly different.
-##If comparing to WT, this shows the d_secA2 strain is statistically significant from WT. The others are not, although d_esxBA is close.
 pairwise.wilcox.test(df$r, df$sample, exact=F)
-
-
-
-
-
-
-
-###DID NOT END UP USING THE BELOW CODE
-##Data and calculate SD, SE,and IC
-##Data and calculate SD, SE,and IC
-#DfDnew <- df %>% select(sample, r)
-dfnew <- df %>% select(sample, r)
-mysum <- dfnew %>%
-  group_by(sample) %>% 
-  dplyr::summarise(
-    n=n(),
-    mean= mean(r), 
-    sd = sd(r)
-  ) %>%
-  mutate( se=sd/sqrt(n))  %>%
-  mutate( ic=se * qt((1-0.05)/2 + .5, n-1))
-
 
 
 

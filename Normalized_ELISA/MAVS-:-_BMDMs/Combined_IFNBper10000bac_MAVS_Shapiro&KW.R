@@ -4,15 +4,8 @@ p_load(ggplot2,tidyverse,plyr,dplyr,DescTools,multcomp,ggpubr,rstatix,ggprism,ma
 
 
 #####ELISA
-setwd("~/Documents/ND_PhD/Laboratory/Thesis/Data/Excel/ELISA/CombinedData/Dose-response ELISA/MAVS-:- BMDMs/")
-data=data.frame(read.csv("CD_MAVS_IFNB-NoDR.csv",header=T, stringsAsFactors = FALSE))
-
-
-#Removed uninfected and WT-HK
-#df <- data[c(1:18, 37:78, 97:138, 157:198, 217:258, 277:309, 316:336, 343:363, 370:390, 397:417, 424:432),c(1,2)]
-
-#Replace ΔsecA2_MOI1 with ΔsecA2
-#df["Strain"][df["Strain"]=="ΔsecA2_MOI1"] <- "ΔsecA2"
+setwd("~/Documents/ND_PhD/Writing Projects/Paper/MMAR_SecA2_ManuscriptData_2023/Normalized_ELISA/MAVS-:-_BMDMs/")
+data=data.frame(read.csv("CD_MAVS_IFNB.csv",header=T, stringsAsFactors = FALSE))
 
 
 #Make the strain levels a factor and order as desired
@@ -94,7 +87,7 @@ Data_summary_ELISA <- data_summary(data, varname = "IFNB_Concentration", groupna
 
 ######CFU
 #Plot CFU by strain
-setwd("~/Documents/ND_PhD/Laboratory/Thesis/Data/Excel/ELISA/CombinedData/Dose-response ELISA/MAVS-:- BMDMs/")
+setwd("~/Documents/ND_PhD/Writing Projects/Paper/MMAR_SecA2_ManuscriptData_2023/Normalized_ELISA/MAVS-:-_BMDMs/")
 data=data.frame(read.csv("CD_MAVS_CFU.csv",header=T))
 
 #Removed uninfected and WT-HK
@@ -197,8 +190,8 @@ sum(A+B+C+D)/4
 
 #######IFNBper10000bac.
 
-setwd("~/Documents/ND_PhD/Laboratory/Thesis/Data/Excel/ELISA/CombinedData/Dose-response ELISA/MAVS-:- BMDMs/")
-data=data.frame(read.csv("Test_2.csv",header=T))
+setwd("~/Documents/ND_PhD/Writing Projects/Paper/MMAR_SecA2_ManuscriptData_2023/Normalized_ELISA/MAVS-:-_BMDMs/")
+data=data.frame(read.csv("CD_MAVS_IFNBper10000Bac.csv",header=T))
 
 
 #Removed uninfected and WT-HK
@@ -217,7 +210,7 @@ df$Strain <- factor(df$Strain, levels = c("WT", "ΔsecA2", "ΔsecA2/secA2_MM", "
 #Plot IFNB concentration by strain
 
 L <- ggplot(df, aes(x=Strain, y=IFNBper10000bac, fill=Strain)) + geom_point(size=0.1) + theme_classic() + theme(axis.text=element_text(size=14),
-                                                                                   axis.title.y=element_text(size=14),
+                                                                                                                axis.title.y=element_text(size=14),
                                                                                    axis.title.x=element_blank(),
                                                                                    axis.text.x=element_text(angle=45, hjust = 1))
 #Add data points as dots and bar graph for average values
