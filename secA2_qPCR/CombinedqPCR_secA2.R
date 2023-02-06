@@ -42,11 +42,11 @@ L <- ggplot(data, aes(x=Strain, y=ΔΔCt, fill=Strain)) + geom_point(size=2) + t
 AveL <- L + stat_summary(geom = "bar", fun = "mean",color=c('#990000','#FFCC33','#CC9900','#996600','#6699FF'), linewidth=2, fill=c("white", "white","white","white", "white"), alpha=c(0.2)) + ylab(expression(paste(italic("secA2")," relative to ",italic("sigA")))) +
   scale_fill_manual('Strain', values=alpha(c('#990000','#FFCC33','#CC9900','#996600','#6699FF'), 0.1)) +
   theme(legend.position = "none", axis.text=element_text(size=40), 
-        axis.title.y=element_text(size=40), axis.title.x=element_blank(), legend.title = element_blank(), legend.text = element_text(size=40), axis.text.x = element_markdown(angle=45, vjust=1, hjust=1),
+        axis.title.y=element_markdown(size=40), axis.title.x=element_blank(), legend.title = element_blank(), legend.text = element_text(size=40), axis.text.x = element_markdown(angle=45, vjust=1, hjust=1),
         plot.title = element_text(hjust = 0, size=40)) +
   ###MUST USE ggtext with axis.text.x = element_markdown() and then any text to be in italics surrounded by * (ex. *secA2*) to get words/numbers italics in the text x-aixs labels (use the y version for y)
   scale_x_discrete(labels = c("WT" = "WT","ΔsecA2" = "Δ*secA2*", "ΔsecA2/secA2_MM" = "Δ*secA2*/p*secA2<sub><i>MM</i></sub>*","ΔsecA2/secA2_MT" = "Δ*secA2*/p*secA2<sub><i>MT</i></sub>*", "ΔesxBA" = "Δ*esxBA*")) +
-  ylab("Colony forming units \n (CFU)/mL at 2hpi")+ #Change the y-axis label
+  ylab("*secA2* transcript <br> abundance rel. to *sigA*")+ #Change the y-axis label
   coord_cartesian(ylim = c(0, 8))
  
 
