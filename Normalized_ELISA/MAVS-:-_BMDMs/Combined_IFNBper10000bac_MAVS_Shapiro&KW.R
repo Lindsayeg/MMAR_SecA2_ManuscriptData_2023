@@ -24,8 +24,8 @@ L <- ggplot(data, aes(x=Strain, y=IFNB_Concentration, fill=Strain)) + geom_point
 #Add data points as dots and bar graph for average values
 
 AveL <- L + stat_summary(geom = "bar", fun = "mean", color=c("#999999", "#990000", "#FFCC33", "#CC9900","#996600", "#6699FF", "#999999"), size=0.4, fill=c("#999999", "#990000", "#FFCC33","#CC9900","#996600", "#6699FF", "#999999"), alpha=c(0.4)) + ylab("IFN-β Concentration \n (pg/ml)") +
-  theme(axis.text.x=element_markdown(angle=45, hjust = 1, size=14), axis.title.x=element_blank(), legend.title = element_blank(), legend.position="none", 
-        axis.title.y=element_text(size=14), plot.title = element_text(hjust = 0, size=16)) +
+  theme(axis.text.x=element_markdown(angle=45, hjust = 1, size=16), axis.title.x=element_blank(), legend.title = element_blank(), legend.position="none", 
+        axis.title.y=element_text(size=16), plot.title = element_text(hjust = 0, size=16)) +
   #labs(title="IFN-β ELISA") +
   scale_x_discrete(labels = c("Uninfected"="Uninfected", "WT" = "WT","ΔsecA2" = "Δ*secA2*", "ΔsecA2/secA2_MM" = "Δ*secA2*/p*secA2<sub><i>MM</i></sub>*","ΔsecA2/secA2_MT" = "Δ*secA2*/p*secA2<sub><i>MT</i></sub>*", "ΔesxBA" = "Δ*esxBA*", "WT-HK_MOI10" = "WT-HK_MOI10")) +
   coord_cartesian(ylim = c(0, 125))
@@ -108,8 +108,8 @@ L <- ggplot(data, aes(x=Strain, y=Uptake, fill=Strain)) + geom_point(size=0.1) +
                                                                                                        axis.text.x=element_text(angle=45, hjust = 1))
 #Add data points as dots and bar graph for average values
 AveL <- L + stat_summary(geom = "bar", fun = "mean", color=c("#999999", "#990000", "#FFCC33","#CC9900","#996600", "#6699FF", "#999999"), linewidth=0.4, fill=c("#999999", "#990000", "#FFCC33","#CC9900","#996600", "#6699FF", "#999999"), alpha=c(0.8)) + ylab("Colony Forming Units \n (CFU/mL)") +
-  theme(axis.text.x=element_markdown(angle=45, hjust = 1, size=14), axis.title.x=element_blank(), legend.title = element_blank(), legend.position="none",
-        axis.title.y=element_text(size=14), plot.title = element_text(hjust = 0, size=16)) +
+  theme(axis.text.x=element_markdown(angle=45, hjust = 1, size=16), axis.title.x=element_blank(), legend.title = element_blank(), legend.position="none",
+        axis.title.y=element_text(size=16), plot.title = element_text(hjust = 0, size=16)) +
   scale_x_discrete(labels = c("Uninfected"="Uninfected", "WT" = "WT","ΔsecA2" = "Δ*secA2*","ΔsecA2/secA2_MM" = "Δ*secA2*/p*secA2<sub><i>MM</i></sub>*","ΔsecA2/secA2_MT" = "Δ*secA2*/p*secA2<sub><i>MT</i></sub>*", "ΔesxBA" = "Δ*esxBA*", "WT-HK_MOI10" = "WT-HK_MOI10"))+
   #labs(title="No. Intracellular Bacteria at 2hpi") +
   coord_cartesian(ylim = c(0, 600000))
@@ -216,8 +216,8 @@ L <- ggplot(df, aes(x=Strain, y=IFNBper10000bac, fill=Strain)) + geom_point(size
 #Add data points as dots and bar graph for average values
 #AveL <- L + stat_summary(geom = "bar", fun = "mean", fill=c(rep("Black",5),"#990066"), alpha=c(0.2)) + ylab("IFN-β Concentration (pg/ml)") 
 AveL <- L + stat_summary(geom = "bar", fun = "mean", color=c("#990000", "#FFCC33", "#CC9900","#996600", "#6699FF"), size=0.75, fill=c("#990000", "#FFCC33","#CC9900","#996600", "#6699FF"), alpha=c(0)) + ylab("IFN-β (pg/ml) per \n 10000 bac.") +
-  theme(axis.text.x=element_markdown(angle=45, hjust = 1, size=14), axis.title.x=element_blank(), legend.title = element_blank(), legend.position="none", 
-        axis.title.y=element_text(size=14), plot.title = element_text(hjust = 0, size=16)) +
+  theme(axis.text.x=element_markdown(angle=45, hjust = 1, size=16), axis.title.x=element_blank(), legend.title = element_blank(), legend.position="none", 
+        axis.title.y=element_text(size=16), plot.title = element_text(hjust = 0, size=16)) +
   scale_x_discrete(labels = c("WT" = "WT","ΔsecA2" = "Δ*secA2*", "ΔsecA2/secA2_MM" = "Δ*secA2*/p*secA2<sub><i>MM</i></sub>*","ΔsecA2/secA2_MT" = "Δ*secA2*/p*secA2<sub><i>MT</i></sub>*", "ΔesxBA" = "Δ*esxBA*")) +
   coord_cartesian(ylim = c(0, 20))
 
