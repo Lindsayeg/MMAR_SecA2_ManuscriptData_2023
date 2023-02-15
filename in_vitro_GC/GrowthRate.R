@@ -43,7 +43,7 @@ AveL <- L + stat_summary(geom = "bar", fun = "mean", color=c("#990000", "#FFCC33
   theme(axis.text.x=element_markdown(angle=45, hjust = 1, size=12), axis.title.x=element_blank(), legend.title = element_blank(), legend.position="none", 
         axis.title.y=element_text(size=12), plot.title = element_text(hjust = 0, size=12)) +
   #labs(title="Growth rate (r)") +
-  scale_x_discrete(labels = c("WT" = "WT","ΔsecA2" = "Δ*secA2*", "ΔsecA2/secA2_MM" = "Δ*secA2*/p*secA2<sub><i>MM</i></sub>*","ΔsecA2/secA2_MT" = "Δ*secA2*/p*secA2<sub><i>MM</i></sub>*", "ΔesxBA" = "Δ*esxBA*")) +
+  scale_x_discrete(labels = c("WT" = "WT","ΔsecA2" = "Δ*secA2*", "ΔsecA2/secA2_MM" = "Δ*secA2*/p*secA2<sub><i>MM</i></sub>*","ΔsecA2/secA2_MT" = "Δ*secA2*/p*secA2<sub><i>MT</i></sub>*", "ΔesxBA" = "Δ*esxBA*")) +
   coord_cartesian(ylim = c(0, 0.075))
 
 AveL
