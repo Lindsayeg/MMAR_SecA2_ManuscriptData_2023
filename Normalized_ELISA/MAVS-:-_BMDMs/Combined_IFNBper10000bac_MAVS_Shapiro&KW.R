@@ -263,7 +263,7 @@ figure <- ggarrange(p2, p1, p3,
                     ncol = 3, nrow = 1)
 figure
 
-ggsave("./Combine_MAVS.png", width = 12, height = 4)
+ggsave("./Combine_MAVS.png", width = 15, height = 5)
 
 
 

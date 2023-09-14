@@ -271,7 +271,7 @@ figure <- ggarrange(p2, p1, p3,
                     ncol = 3, nrow = 1)
 figure
 
-ggsave("./Combine_IFNBper10000bac_withInset.png", width = 12, height = 4)
+ggsave("./Combine_IFNBper10000bac.png", figure, width = 15, height = 5)
 
 
 
